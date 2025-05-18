@@ -28,10 +28,10 @@ GROUP BY u.id, name
 ORDER BY total_deposits DESC
 LIMIT 25;
 
-2️⃣ Transaction Frequency Analysis
-Objective: Categorize customers based on transaction frequency per month. 
-Tables Used: users_customuser, savings_savingsaccount 
-Approach:
+### 2️⃣ Transaction Frequency Analysis
+**Objective:** Categorize customers based on transaction frequency per month. 
+**Tables Used:** users_customuser, savings_savingsaccount 
+**Approach:**
  ✔ Count transactions per customer in the last 12 months 
 ✔ Divide transaction count by months since first transaction 
 ✔ Categorize customers (High, Medium, Low)
@@ -53,10 +53,10 @@ FROM (
 ) AS transaction_summary
 GROUP BY frequency_category;
 
-3️⃣ Account Inactivity Alert
-Objective: Find accounts that have had no transactions in the last year (365 days). 
-Tables Used: plans_plan, savings_savingsaccount, withdrawals_withdrawal 
-Approach: 
+### 3️⃣ Account Inactivity Alert
+**Objective:** Find accounts that have had no transactions in the last year (365 days). 
+**Tables Used:** plans_plan, savings_savingsaccount, withdrawals_withdrawal 
+**Approach:** 
 ✔ Find the latest transaction for each customer 
 ✔ Identify accounts where last transaction was over 365 days ago
 ```sql
@@ -70,10 +70,10 @@ FROM (
 GROUP BY owner_id
 HAVING inactivity_days > 365;
 
-4️⃣ Customer Lifetime Value (CLV) Estimation
-Objective: Estimate customer CLV based on account tenure and transaction volume. 
-Tables Used: users_customuser, savings_savingsaccount 
-Approach: 
+### 4️⃣ Customer Lifetime Value (CLV) Estimation
+**Objective:** Estimate customer CLV based on account tenure and transaction volume. 
+**Tables Used:** users_customuser, savings_savingsaccount 
+**Approach:** 
 ✔ Calculate tenure in months since signup 
 ✔ Count total transactions 
 ✔ Apply CLV formula
