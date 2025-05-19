@@ -1,8 +1,8 @@
-Optimized SQL Query for Question 1
--- Query to find high-value customers with multiple products
--- Customers must have at least one funded savings plan AND one funded investment plan
+### Optimized SQL Query for Question 1
+**-- Query to find high-value customers with multiple products**
+**-- Customers must have at least one funded savings plan AND one funded investment plan**
 
-``sql
+```sql
 SELECT u.id AS owner_id, 
        COALESCE(u.name, CONCAT(u.first_name, ' ', u.last_name)) AS name, 
        COUNT(DISTINCT s.id) AS savings_count, 
@@ -16,4 +16,4 @@ WHERE p.is_regular_savings = 1 -- Corrected reference to plans_plan
 GROUP BY u.id, name
 ORDER BY total_deposits DESC
 LIMIT 25;
-``
+```
