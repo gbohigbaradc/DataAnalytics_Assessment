@@ -1,7 +1,8 @@
-Optimized SQL Query for Question 2
--- Query to analyze transaction frequency per customer
--- Categorizes customers based on their average transactions per month
-``sql``
+### Optimized SQL Query for Question 2
+**-- Query to analyze transaction frequency per customer**
+**-- Categorizes customers based on their average transactions per month**
+
+```sql
 SELECT 
     frequency_category, 
     COUNT(owner_id) AS customer_count,
@@ -18,3 +19,4 @@ FROM (
     GROUP BY s.owner_id
 ) AS transaction_summary
 GROUP BY frequency_category;
+```
